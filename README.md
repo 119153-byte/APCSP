@@ -1,2 +1,2 @@
 # APCSP-files
-storage of files for create algorithm
+Repository made to store AP CSP files, with all files used stored in reverse chronological order.
