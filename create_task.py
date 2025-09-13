@@ -12,7 +12,6 @@ authors = ["Doug Dorst & JJ Abrams", "Homer", "Mark Z. Danielewski", "Johnathan 
 user_recommended = []
 
 user_option = None
-test = None
 books_recommended = 0
 
 
@@ -27,8 +26,7 @@ def m_menu(u_opt):
         while True:
                 u_opt = input("Your choice: ")
                 try:
-                        test = int(u_opt)
-                        if test in [1, 2, 3]:
+                        if int(u_opt) in [1, 2, 3]:
                                 break
                 except ValueError:
                         print("Please enter a valid number (1, 2, 3): ")
