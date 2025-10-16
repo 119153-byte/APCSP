@@ -1,100 +1,101 @@
-#library of Alexandria
+#Library Of Alexandria
 
 import random
 import time
 
-recommended_books = ["S. ", "Odyssey", "House of leaves", "Fall of the house of Cabal", "The Devil and Ms. Prym", "Moby Dick", "Don Quixote", "Othello", "Ulysses", "The Giver"]
-authors = ["Doug Dorst & JJ Abrams", "Homer", "Mark Z. Danielewski", "Johnathan L. Howard", "Paulo Coehlo", "Herman Melville", "Miguel De Cervantes", "Shakespeare", "James Joyce", "Lois Lowry"]
+recommended_books = ["S. ", "Odyssey", "House Of Leaves", "Fall Of The House Of Cabal", "The Devil And Ms. Prym", "Moby Dick", "Don Quixote", "Othello", "Ulysses", "The Giver"]
+authors = ["Doug Dorst & JJ Abrams", "Homer", "Mark Z. Danielewski", "Johnathan L. Howard", "Paulo Coelho", "Herman Melville", "Miguel De Cervantes", "Shakespeare", "James Joyce", "Lois Lowry"]
 user_recommended = []
 books_recommended = 0
 
-print("#####WELCOME TO THE LIBRARY######") #only asked once because its the initial start of the program
+print("#####Welcome To The Library######") #Only Asked Once Because Its The Initial Start Of The Program
 
 def m_menu():
         time.sleep(1)
-        print("In the library, you can either: \n 1. Recieve a Book Recommendation \n 2. Give a Book Recommendation \n 3. Exit") #menu screen
+        print("In The Library, You Can Either: \n 1. Receive A Book Recommendation \n 2. Give A Book Recommendation \n 3. Exit") #Menu Screen
         time.sleep(1)
-        print("Input your choice of (1) (2) (3) \n")
-        while True: #while loop to ensure the user's response doesnt break program with undesired response
-                user_option = input("Your choice: ")
+        print("Input Your Choice Of (1) (2) (3) \n")
+        while True: #While Loop To Ensure The User's Response Doesnt Break Program With Undesired Response
+                user_option = input("Your Choice: ")
                 try:
-                        if int(user_option) in [1, 2, 3]: #when a user's input fulfills the parameter it continues the program
+                        if int(user_option) in [1, 2, 3]: #When A User's Input Fulfills The Parameter It Continues The Program
                                 break 
                 except ValueError:
-                        print("Please enter a valid number (1, 2, 3): ")
+                        print("Please Enter A Valid Number (1, 2, 3): ")
                 else:
-                        print("Please enter a valid number (1, 2, 3): ")
+                        print("Please Enter A Valid Number (1, 2, 3): ")
         if int(user_option) == 1:
                 OPTION1()
         elif int(user_option) == 2:
                 OPTION2()
         elif int(user_option) == 3:
-                print("Closing program....Goodbye!")
+                print("Closing Program....Goodbye!")
                 time.sleep(1)
 
 
-def redirect(option): #asks user whether to continue or close program at the end of each menu
+def redirect(option): #Asks User Whether To Continue Or Close Program At The End Of Each Menu
         if option == 0:
-                print(" Will that be all? \n Y/N")
+                print(" Will That Be All? \n Y/N")
                 while True:
                         user_option = input("Your Answer: ")
                         try:
                                 if user_option.upper() in ["Y", "N"]:
                                         break
                         except ValueError:
-                                print("Please provide a valid answer: ")
+                                print("Please Provide A Valid Answer: ")
                         else:
-                                print("Please provide a valid answer: ")
+                                print("Please Provide A Valid Answer: ")
                 if user_option.upper() == "Y":
                         print("Closing Program....Goodbye!")
                 else:
-                        print("Redirecting to Main Menu...")
-                        print(' \n' * 12) #clears screen
+                        print("Redirecting To Main Menu...")
+                        print(' \n' * 12) #Clears Screen
                         m_menu()
         else: 
-                print("Would You likke to: \n a. Provide a New Recommendation \n b. Exit to Main Menu \n c. Exit Program \n")
+                print("Would You Like To: \n A. Provide A New Recommendation \n B. Exit To Main Menu \n C. Exit Program \n")
                 while True:                        
                         user_option = input("Your Answer: ")
                         try:
                                 if user_option.lower() in ['a', 'b', 'c']:
                                         break
                         except ValueError:
-                                print("Please provide a valid answer: ")
+                                print("Please Provide A Valid Answer: ")
                         else:
-                                print("Please provide a valid answer: ")
+                                print("Please Provide A Valid Answer: ")
                 if user_option.lower() == 'a':
                         OPTION2()
                 elif user_option.lower() == 'b':
-                        print("Redirecting to Main Menu...")
-                        print(' \n' * 12) #clears screen
+                        print("Redirecting To Main Menu...")
+                        print(' \n' * 12) #Clears Screen
                         m_menu()
                 else:
-                        return 0 #exits program
+                        return 0 #Exits Program
 
 
-def OPTION1():  #User receives book recommendation
+def OPTION1():  #User Receives Book Recommendation
         i = random.randint(0, 9)
-        print("The book of choice is...")
+        print("The Book Of Choice Is...")
         time.sleep(1)
-        print(f"{recommended_books[i]} by {authors[i]} \n")
+        print(f"{recommended_books[i]} By {authors[i]} \n")
         ri = 0
         redirect(ri) 
 
 
-def OPTION2(): #User provides book recommendation
+def OPTION2(): #User Provides Book Recommendation
         global user_recommended
         global books_recommended
-        print("Please provide a book recomendation below!")
+        print("Please Provide A Book Recommendation Below!")
         rec  = input("Your Answer: ")
         user_recommended.append(rec)
-        print("\n Thank you for the recommendation! \n It has been added to the list! \n ")
+        print("\n Thank You For The Recommendation! \n It Has Been Added To The List! \n ")
         books_recommended += 1
-        ri = 1 #redirect index to change the option screen of rediect function
+        ri = 1 #Redirect Index To Change The Option Screen Of Redirect Function
         redirect(ri)
 
 
 m_menu()
 
 if books_recommended > 0:
-        print("You've recommended a total of [", str(books_recommended), "] books. \n they include: ", user_recommended)
+        print("You've Recommended A Total Of [", str(books_recommended), "] Books. \n They Include: ", user_recommended)
 print("Program Terminated")
+
